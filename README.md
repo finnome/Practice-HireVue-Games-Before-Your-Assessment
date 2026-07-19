@@ -4,7 +4,7 @@ Preparing for an unfamiliar game-based assessment can be stressful when the rule
 
 **Website:** [https://hirevuegames.com/](https://hirevuegames.com/)
 
-[![Practice HireVue games before your assessment with interactive demos and guided practice](images/practice-hirevue-games-before-your-assessment.png)](https://hirevuegames.com/)
+[![Practice HireVue games before your assessment with interactive demos and guided practice](images/practice-hirevue-games-before-your-assessment.svg)](https://hirevuegames.com/)
 
 ## What You Can Practice
 
@@ -31,7 +31,7 @@ Choose the game named in your assessment invitation and open its dedicated pract
 | Puzzle | Visual problem solving | [Practice Puzzle](https://hirevuegames.com/games/puzzle) |
 | Portrait | Workplace preferences and behavior | [Practice Portrait](https://hirevuegames.com/games/portrait) |
 | PortraitXT | Extended work-style assessment practice | [Practice PortraitXT](https://hirevuegames.com/games/portraitxt) |
-| E-Motions | Emotion recognition and social cues | [Practice E-Motions](https://hirevuegames.com/games/e-motions) |
+| E-Motions | Emotion recognition and social cues | [Practice E-Motions](https://hirevuegames.com/games/emotions) |
 | Teamchat | Workplace communication and judgment | [Practice Teamchat](https://hirevuegames.com/games/teamchat) |
 | Pulse | Attention and response control | [Practice Pulse](https://hirevuegames.com/games/pulse) |
 
@@ -43,7 +43,7 @@ You can also browse the complete [HireVue games practice library](https://hirevu
 2. **Learn the rules.** Review the interaction, controls, and example before starting a timed round.
 3. **Try the free demo.** Use the interactive sample to confirm that you understand the task.
 4. **Complete guided practice.** Focus on accuracy and a repeatable decision process.
-5. **Use a mock test.** Practise under time pressure without hints when you are ready.
+5. **Use a mock test.** Practice under time pressure without hints when you are ready.
 
 ## Why Format Familiarity Matters
 
