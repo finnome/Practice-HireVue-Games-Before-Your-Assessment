@@ -1,0 +1,35 @@
+name: Import final README images
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/import-final-readme-images.yml
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Import verified 1920x1080 screenshots
+        run: |
+          mkdir -p images /tmp/final-readme-images
+          curl -fL 'https://sdmntprjapaneast.oaiusercontent.com/files/00000000-fdf4-8209-9609-53e995ae2147/raw?se=2026-07-19T16:52:28Z&sp=r&sv=2026-02-06&sr=b&scid=95b48830-8f1d-50d1-b1fc-ba3bd46d29c3&skoid=03727f49-62d3-42ac-8350-1c0e6559d238&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-07-19T01:40:14Z&ske=2026-07-21T01:40:14Z&sks=b&skv=2026-02-06&sig=3oGFw%2B9VNvVLwKr8lU5J7Lb0AzjHqeINeUyUEGl8AzY%3D' -o /tmp/final-readme-images.zip
+          unzip -o /tmp/final-readme-images.zip -d /tmp/final-readme-images
+          cp /tmp/final-readme-images/*.jpg images/
+          rm -f images/practice-hirevue-games-before-your-assessment.svg
+
+      - name: Commit images and remove temporary workflow
+        run: |
+          rm -f .github/workflows/import-final-readme-images.yml
+          rmdir .github/workflows 2>/dev/null || true
+          rmdir .github 2>/dev/null || true
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'docs: replace README images with verified 1920x1080 screenshots'
+          git push
