@@ -1,0 +1,33 @@
+name: Import README screenshots
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download 1920x1080 screenshots
+        run: |
+          mkdir -p images /tmp/readme-screenshots
+          curl -fL 'https://sdmntprjapaneast.oaiusercontent.com/files/00000000-75f0-8209-aed1-79eb74f70108/raw?se=2026-07-19T16:46:17Z&sp=r&sv=2026-02-06&sr=b&scid=f1e36ee9-e89f-55db-bc22-d211cfdb180a&skoid=03727f49-62d3-42ac-8350-1c0e6559d238&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-07-19T05:42:31Z&ske=2026-07-21T05:42:31Z&sks=b&skv=2026-02-06&sig=F7Yf5MfejKG2ku6WqabI6iA6kql9SE3fJN3WP%2FzT%2BOI%3D' -o /tmp/readme-screenshots.zip
+          unzip -o /tmp/readme-screenshots.zip -d /tmp/readme-screenshots
+          cp /tmp/readme-screenshots/*.jpg images/
+          rm -f images/practice-hirevue-games-before-your-assessment.svg
+
+      - name: Commit screenshots and remove temporary workflow
+        run: |
+          rm -f .github/workflows/import-readme-screenshots.yml
+          rmdir .github/workflows 2>/dev/null || true
+          rmdir .github 2>/dev/null || true
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'docs: add 1920x1080 HireVue practice screenshots'
+          git push
